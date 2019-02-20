@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[用Lambda表达式快速地处理集合]]></title>
+    <url>%2F2019%2F01%2F24%2F%E7%94%A8Lambda%E5%BF%AB%E9%80%9F%E5%9C%B0%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%2F</url>
+    <content type="text"><![CDATA[for 循环不是挺好的吗在 Java 的第 1 个版本中就开始引入了传统的 for 循环，它的更简单的变体 for-each 是在 Java 5 中引入的。大部分开发人员更喜欢使用 for-each 执行日常迭代，但对于迭代一个范围或跳过范围中的值等操作，仍会使用 for循环。 for 循环非常强大，但它包含太多可变部分。123for(int i = 1; i &lt; 6; i++) &#123; System.out.print(i + &quot;starts&quot;);&#125; 没有太多代码，但比较繁琐。Java 8 提供了一种更简单、更优雅的替代方法：Lambda表达式12IntStream.range(1, 6) .forEach(i -&gt; System.out.print(i + &quot;starts&quot;)); 并没有显著减少代码量，但降低了它的复杂性。这样做有两个重要原因： 1.不同于 for，range不会强迫我们初始化某个可变变量。2.迭代会自动执行，所以不需要像循环索引一样定义增量。开始使用Lambda首先我们先创建一个 Car 泛型的 List1234List&lt;Car&gt; cars = new ArrayList&lt;&gt;();cars.add(new Car(&quot;Benz&quot;,&quot;G63&quot;,&quot;black&quot;));cars.add(new Car(&quot;Audi&quot;,&quot;RS6&quot;,&quot;blue&quot;));cars.add(new Car(&quot;Mitsubishi&quot;,&quot;EVOIIV&quot;,&quot;white&quot;)); Car 类包含品牌、型号和颜色3个属性 1. stream()将集合转换为流 2. filter(T -&gt; boolean)保留 boolean 为 true 的元素 举个栗子 保留品牌为Mitsubishi的Car元素123cars = cars.stream() .filter(Car -&gt;Car.getBrand().equals(&quot;Mitsubishi&quot;)) .collect(toList()); //把流转换为 List 类型 3. distinct()去除重复元素，通过类的 equals 方法来判断两个元素是否相等 4. sorted() / sorted((T, T) -&gt; int)如果流中的元素的类实现了 Comparable 接口，即有自己的排序规则，那么可以直接调用 sorted() 方法对元素进行排序 5. limit(long n)返回前 n 个元素 6. skip(long n)去除前 n 个元素 7. map(T -&gt; R)将流中的每一个元素 T 映射为 R（类似类型转换） 8. flatMap(T -&gt; Stream将流中的每一个元素 T 映射为一个流，再把每一个流连接成为一个流 9. anyMatch(T -&gt; boolean)流中是否有一个元素匹配给定的 T -&gt; boolean 条件 10. allMatch(T -&gt; boolean)流中是否所有元素都匹配给定的 T -&gt; boolean 条件 11. noneMatch(T -&gt; boolean)流中是否没有元素匹配给定的 T -&gt; boolean 条件 12. findAny() 和 findFirst()findAny()：找到其中一个元素 （使用 stream() 时找到的是第一个元素；使用 parallelStream() 并行时找到的是其中一个元素）findFirst()：找到第一个元素 13. reduce((T, T) -&gt; T) 和 reduce(T, (T, T) -&gt; T)用于组合流中的元素，如求和，求积，求最大值等 13. count()返回流中元素个数，结果为 long 类型 14. collect()收集方法，常用的是 collect(toList())，当然还有 collect(toSet()) 等，参数是一个收集器接口 15. forEach()遍历集合 多层循环怎么处理举个稍复杂的栗子 给汽车装上轮子，要求颜色一样，而且轮子能转 先来看for 循环：1234567891011List&lt;Car&gt; filteredCars = new ArrayList&lt;&gt;(); for (Car car : cars) &#123; for (Wheel wheel : wheels) &#123; if (car.getColor() == wheel.getColor() &amp;&amp; wheel.isWorking() == true) &#123; filteredCars.add(car); break; &#125; &#125; &#125; return filteredCars; 再来看Lambda表达式：1234List&lt;Car&gt; filteredCars = cars.stream() .filter (car -&gt; wheels.stream() .anyMatch(wheel -&gt; wheel.getColor() == car.getColor() &amp;&amp; wheel.isWorking())) .collect(Collectors.toList()); 真好。]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>for循环</tag>
+        <tag>lambda表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[利用Hexo-admin插件管理Hexo博客]]></title>
+    <url>%2F2019%2F01%2F10%2F%E5%88%A9%E7%94%A8Hexo-admin%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86Hexo%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[成功用github+hexo搭建好个人博客之后，找一个自己喜欢的主题运用到自己的博客中： 挑个好看的主题在网上能找到很多好看的主题供你下载。 知乎话题：有哪些好看的 Hexo 主题？ 也可以去hexo下载官方主题。 下载主题到本地 选一个，比如NEXT主题， 复制该主题的URL 用git bash，进入到博客的本地目录中, 使用clone 命令将主题拉取到本地： 1$ git clone https://github.com/theme-next/hexo-theme-next themes/next. 修改配置文件 打开当前目录下的“_config.yml”配置文件。 更多可选配置 NEXT官方主题：使用文档 找到theme的配置选项，一般在文件的最后。之后，将theme选项配置为我们新下载好的next主题即可。 注意YML文件的格式， 1: 后面有空格！ 调试 回到git bash，输入调试命令： 1$ hexo server --debug 在浏览器中输入localhost:4000查看， 正常！安装Hexo-admin插件 运行 12$npm install --save hexo-admin$hexo server -d 安装完后在浏览器中输入localhost:4000/admin查看 Post：博客文章列表 Pages：页面管理About：admin插件说明 hexo-gen：关键节点Settings: 配置 在post页面就可以使用MarkDown语法写博客了。当然，多媒体文件的插入也完全遵循MarkDown语法。关于MarkDown语法的使用：MarkDown语法进阶 最后，本地写完后不要忘记提交1$ hexo deploy]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Hexo-admin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[用Github+Hexo搭建自己的博客]]></title>
+    <url>%2F2019%2F01%2F06%2F%E7%94%A8Github-Hexo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[下载：1.安装Git：下载地址 https://git-scm.com/download/win 2.下载Node.js安装文件（64位的下载地址）：https://nodejs.org/dist/v8.9.4/node-v8.9.4-x64.msi 安装：点开安装包，默认选项，一路next。 检查git版本号:12C:\Users\chenc&gt;git --versiongit version 2.20.1.windows.1 检查node.js版本号:12C:\Users\chenc&gt;node -vv10.13.0 检查npm的安装:12C:\Users\chenc&gt;npm -v3.10.10 都没问题后，到Github上注册一个账号:https://github.com/注册完成后，登录你的账号，创建一个新仓库,仓库名称要与你的用户名一致 其它选项默认，点击Create repository 创建仓库。创建好仓库后，在本地磁盘创建一个文件夹，比如我的叫zpc9360 右键文件夹，点Git Bash ,进入： 然后，设置全局配置user.name 和user.email12git config --global user.name &quot;自己的Github的账号&quot; git config --global user.email &quot;注册Github时的邮箱&quot; 生成SSH密钥设置到Github(需先设置user.name和user.email)12cd ~/.ssh ssh-keygen -t rsa -C “注册Github时的邮箱” 生成的ssh key在C:\Users\chenc\.ssh文件夹中，复制 id_rsa.pub文件的内容到 github-&gt;settings-&gt;SSH and GPG key-&gt;new ssh key 完成后测试一下：1ssh -T git@github.com 连接成功 接下来安装hexo插件1npm install hexo-cli -g #安装hexo 稍安勿躁，等待安装完成。 安完后执行：1hexo init Hexo #初始化hexo 1hexo generate #构建 1hexo sever #启动服务 上面两个命令可以简写为12$ hexo g -d$ hexo d -g 好了，初步搭建完成在浏览器输入http://localhost:4000/ 访问本地项目 但是现在只能本地访问，我们要把它提交到GitHub上去安装部署到github插件依赖1npm install –save hexo-deployer-git 顺便修改下配置文件： 改成你的： 再将gitbash部署hexo到github1hexo deploy 稍等，打开zpc9360.github.io（你输入你自己的！当然你可以映射到你自己的域名上）,会出现博客界面： 你的博客就搭好啦！但是，如何优雅的发布文章呢？怎样编辑分类和标签，加入评论模块？ 模板太丑怎么换？ 怎么插入图片和多媒体文件？ 且听下回，《利用Hexo-admin插件管理Hexo博客》。]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[再见2018]]></title>
+    <url>%2F2018%2F12%2F30%2F%E5%86%8D%E8%A7%812018%2F</url>
+    <content type="text"><![CDATA[今天是元旦假期的的第一天，2018的最后两天。能睡到自然醒真好。杭州今天也下雪了，终于有点冬天的感觉了。回顾过去的2018年，给自己总结了这么几个词：浮躁、惭愧、情商低。情商低不是那种得罪人的低，还没有那么低。希望别人开心，逗人笑，反而做了很多沙雕的事。幸好周围的人足够宽容，忽略了那种刻意。说起来惭愧。希望2019年戒骄戒躁，对生活抱有热情。大可不必在意，大可不必担心高高兴兴 开开心心朋友们！]]></content>
+      <categories>
+        <category>高高兴兴 开开心心</category>
+      </categories>
+      <tags>
+        <tag>再见</tag>
+        <tag>惭愧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[你终于来了！]]></title>
+    <url>%2F2018%2F12%2F25%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[嘿！欢迎你来！刚学着用hexo和github page搭建了自己静态博客。 我会在这儿记录一些自己学习编程的坑和技巧， 毕竟 也会突发奇想写一点的东西。不会定时更新，但是会坚持下去的！ 欢迎勾搭网易云音乐: 十二水硫酸铝甲新浪微博: 坐不如跑不如蹦跶Twitter:@zpc2012阿弥陀佛1234567891011121314151617181920* o8888888o* 88&quot; . &quot;88* (| -_- |)* O\ = /O* ____/`---&apos;\____* . &apos; \\| |// `.* / \\||| : |||// \* / _||||| -:- |||||- \* | | \\\ - /// | |* | \_| &apos;&apos;\---/&apos;&apos; | |* \ .-\__ `-` ___/-. /* ___`. .&apos; /--.--\ `. . __* .&quot;&quot; &apos;&lt; `.___\_&lt;|&gt;_/___.&apos; &gt;&apos;&quot;&quot;.* | | : `- \`.;`\ _ /`;.`/ - ` : | |* \ \ `-. \_ __\ /__ _/ .-` / /* ======`-.____`-.___\_____/___.-`____.-&apos;======* `=---=&apos;** .............................................* 佛祖保佑 永无BUG]]></content>
+      <categories>
+        <category>随便写写</category>
+      </categories>
+      <tags>
+        <tag>欢迎你！</tag>
+      </tags>
+  </entry>
+</search>
