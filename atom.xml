@@ -5,9 +5,9 @@
   <subtitle>尽人事 知天命</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://jason.phewww.club/"/>
+  <link href="http://phewww.top/"/>
   <updated>2019-02-21T10:06:55.739Z</updated>
-  <id>http://jason.phewww.club/</id>
+  <id>http://phewww.top/</id>
   
   <author>
     <name>Jason</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Mac下jdk环境变量的配置</title>
-    <link href="http://jason.phewww.club/2019/02/21/Mac%E4%B8%8Bjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-    <id>http://jason.phewww.club/2019/02/21/Mac下jdk环境变量的配置/</id>
+    <link href="http://phewww.top/2019/02/21/Mac%E4%B8%8Bjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>http://phewww.top/2019/02/21/Mac下jdk环境变量的配置/</id>
     <published>2019-02-21T07:54:00.000Z</published>
     <updated>2019-02-21T10:06:55.739Z</updated>
     
@@ -34,19 +34,19 @@
     
     </summary>
     
-      <category term="环境配置" scheme="http://jason.phewww.club/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+      <category term="环境配置" scheme="http://phewww.top/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="Mac" scheme="http://jason.phewww.club/tags/Mac/"/>
+      <category term="Mac" scheme="http://phewww.top/tags/Mac/"/>
     
-      <category term="jdk" scheme="http://jason.phewww.club/tags/jdk/"/>
+      <category term="jdk" scheme="http://phewww.top/tags/jdk/"/>
     
   </entry>
   
   <entry>
     <title> 用Lambda表达式快速地处理集合</title>
-    <link href="http://jason.phewww.club/2019/01/24/%E7%94%A8Lambda%E5%BF%AB%E9%80%9F%E5%9C%B0%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88/"/>
-    <id>http://jason.phewww.club/2019/01/24/用Lambda快速地处理集合/</id>
+    <link href="http://phewww.top/2019/01/24/%E7%94%A8Lambda%E5%BF%AB%E9%80%9F%E5%9C%B0%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88/"/>
+    <id>http://phewww.top/2019/01/24/用Lambda快速地处理集合/</id>
     <published>2019-01-24T02:34:00.000Z</published>
     <updated>2019-02-04T03:19:43.972Z</updated>
     
@@ -61,21 +61,21 @@
     
     </summary>
     
-      <category term="编程" scheme="http://jason.phewww.club/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://phewww.top/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="java" scheme="http://jason.phewww.club/tags/java/"/>
+      <category term="java" scheme="http://phewww.top/tags/java/"/>
     
-      <category term="for循环" scheme="http://jason.phewww.club/tags/for%E5%BE%AA%E7%8E%AF/"/>
+      <category term="for循环" scheme="http://phewww.top/tags/for%E5%BE%AA%E7%8E%AF/"/>
     
-      <category term="lambda表达式" scheme="http://jason.phewww.club/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="lambda表达式" scheme="http://phewww.top/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>利用Hexo-admin插件管理Hexo博客</title>
-    <link href="http://jason.phewww.club/2019/01/10/%E5%88%A9%E7%94%A8Hexo-admin%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86Hexo%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://jason.phewww.club/2019/01/10/利用Hexo-admin插件管理Hexo博客/</id>
+    <link href="http://phewww.top/2019/01/10/%E5%88%A9%E7%94%A8Hexo-admin%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86Hexo%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://phewww.top/2019/01/10/利用Hexo-admin插件管理Hexo博客/</id>
     <published>2019-01-10T10:02:00.000Z</published>
     <updated>2019-02-04T03:19:43.968Z</updated>
     
@@ -91,17 +91,17 @@
     
     </summary>
     
-      <category term="编程" scheme="http://jason.phewww.club/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://phewww.top/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Hexo-admin" scheme="http://jason.phewww.club/tags/Hexo-admin/"/>
+      <category term="Hexo-admin" scheme="http://phewww.top/tags/Hexo-admin/"/>
     
   </entry>
   
   <entry>
     <title>用Github+Hexo搭建自己的博客</title>
-    <link href="http://jason.phewww.club/2019/01/06/%E7%94%A8Github-Hexo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://jason.phewww.club/2019/01/06/用Github-Hexo搭建自己的博客/</id>
+    <link href="http://phewww.top/2019/01/06/%E7%94%A8Github-Hexo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://phewww.top/2019/01/06/用Github-Hexo搭建自己的博客/</id>
     <published>2019-01-06T08:03:00.000Z</published>
     <updated>2019-02-04T03:19:43.970Z</updated>
     
@@ -116,19 +116,19 @@
     
     </summary>
     
-      <category term="编程" scheme="http://jason.phewww.club/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://phewww.top/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Github" scheme="http://jason.phewww.club/tags/Github/"/>
+      <category term="Github" scheme="http://phewww.top/tags/Github/"/>
     
-      <category term="Hexo" scheme="http://jason.phewww.club/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://phewww.top/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>再见2018</title>
-    <link href="http://jason.phewww.club/2018/12/30/%E5%86%8D%E8%A7%812018/"/>
-    <id>http://jason.phewww.club/2018/12/30/再见2018/</id>
+    <link href="http://phewww.top/2018/12/30/%E5%86%8D%E8%A7%812018/"/>
+    <id>http://phewww.top/2018/12/30/再见2018/</id>
     <published>2018-12-30T10:16:00.000Z</published>
     <updated>2019-02-04T03:19:43.968Z</updated>
     
@@ -143,12 +143,12 @@
     
     </summary>
     
-      <category term="高高兴兴 开开心心" scheme="http://jason.phewww.club/categories/%E9%AB%98%E9%AB%98%E5%85%B4%E5%85%B4-%E5%BC%80%E5%BC%80%E5%BF%83%E5%BF%83/"/>
+      <category term="高高兴兴 开开心心" scheme="http://phewww.top/categories/%E9%AB%98%E9%AB%98%E5%85%B4%E5%85%B4-%E5%BC%80%E5%BC%80%E5%BF%83%E5%BF%83/"/>
     
     
-      <category term="再见" scheme="http://jason.phewww.club/tags/%E5%86%8D%E8%A7%81/"/>
+      <category term="再见" scheme="http://phewww.top/tags/%E5%86%8D%E8%A7%81/"/>
     
-      <category term="惭愧" scheme="http://jason.phewww.club/tags/%E6%83%AD%E6%84%A7/"/>
+      <category term="惭愧" scheme="http://phewww.top/tags/%E6%83%AD%E6%84%A7/"/>
     
   </entry>
   
