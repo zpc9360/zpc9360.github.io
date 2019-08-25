@@ -147,11 +147,11 @@
       <category term="Redis" scheme="http://phewww.top/categories/Redis/"/>
     
     
+      <category term="Spring Boot" scheme="http://phewww.top/tags/Spring-Boot/"/>
+    
       <category term="Redis集群" scheme="http://phewww.top/tags/Redis%E9%9B%86%E7%BE%A4/"/>
     
       <category term="Jedis" scheme="http://phewww.top/tags/Jedis/"/>
-    
-      <category term="Spring Boot" scheme="http://phewww.top/tags/Spring-Boot/"/>
     
       <category term="JedisCluster" scheme="http://phewww.top/tags/JedisCluster/"/>
     

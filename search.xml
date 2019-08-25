@@ -118,11 +118,11 @@
       
         <tags>
             
+            <tag> Spring Boot </tag>
+            
             <tag> Redis集群 </tag>
             
             <tag> Jedis </tag>
-            
-            <tag> Spring Boot </tag>
             
             <tag> JedisCluster </tag>
             
