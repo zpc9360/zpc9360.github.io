@@ -11,6 +11,20 @@
         <content type="html"><![CDATA[<p>测试的对象为并未进行加固，代码混淆，重签名校验等安全策略。<br><img src="/2019/11/28/一次反编译apk并重新打包签名/img1.png" alt="img1.png"></p><h4 id="一、用-jadx-gui-打开apk"><a href="#一、用-jadx-gui-打开apk" class="headerlink" title="一、用 jadx-gui 打开apk"></a>一、用 jadx-gui 打开apk</h4><p>在待反编译的apk目录下执行（需要<left>🚀<a href="https://github.com/skylot/jadx" target="_blank" rel="noopener">jadx</a></left>和JRE，本文使用的版本分别是jadx v1.0.0和<br>Java(TM) SE Runtime Environment (build 1.8.0_201-b09) ）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jadx-gui android.apk</span><br></pre></td></tr></table></figure></p><p><img src="/2019/11/28/一次反编译apk并重新打包签名/img2.png" alt="img2.png"></p><h4 id="二、查看源码，找到要修改的地方"><a href="#二、查看源码，找到要修改的地方" class="headerlink" title="二、查看源码，找到要修改的地方"></a>二、查看源码，找到要修改的地方</h4><p>经过一顿操作😑，定位到登录过程的关键方法<br><img src="/2019/11/28/一次反编译apk并重新打包签名/img3.png" alt="img3.png"><br>继续研究HttpManager这个对象。<br><img src="/2019/11/28/一次反编译apk并重新打包签名/img4.png" alt="img4.png"><br>发现当isSuccessFul方法返回false时，会验证登录，我们只要修改isSuccessFul的返回值即可。</p><h4 id="三、修改代码，生成smali代码"><a href="#三、修改代码，生成smali代码" class="headerlink" title="三、修改代码，生成smali代码"></a>三、修改代码，生成smali代码</h4><p>把isSuccessFul方法复制到Android Studio中，注意方法中的依赖，也要放到与源码相同的位置。<br><img src="/2019/11/28/一次反编译apk并重新打包签名/img5.png" alt="img5.png"><br>使用java2smali插件生成smali代码,选择我们要的部分<br><img src="/2019/11/28/一次反编译apk并重新打包签名/img6.png" alt="img6.png"></p><h4 id="四、替换原代码"><a href="#四、替换原代码" class="headerlink" title="四、替换原代码"></a>四、替换原代码</h4><p>用apktool反编译得到smali文件（需要<left>🚀<a href="https://github.com/iBotPeaches/Apktool" target="_blank" rel="noopener">apktool</a></left>）<br>执行反编译命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apktool d ./android.apk -o outdir</span><br></pre></td></tr></table></figure></p><p>执行成功后得到outdir这个文件夹,找到isSuccessFul这个方法<br><img src="/2019/11/28/一次反编译apk并重新打包签名/img7.png" alt="img7.png"><br>用修改好的smali码替换掉这里，保存<br><img src="/2019/11/28/一次反编译apk并重新打包签名/img8.png" alt="img8.png"></p><h4 id="五、编译APK文件并签名"><a href="#五、编译APK文件并签名" class="headerlink" title="五、编译APK文件并签名"></a>五、编译APK文件并签名</h4><p>执行回编译命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apktool b outdir</span><br></pre></td></tr></table></figure></p><p>回编译完成后，会在dist目录下生成android.apk文件。<br>通过编译生成的APK文件是没有签名的，因此不能进行安装和测试。接下来，需要使用signapk对APK文件进行签名(<left>🚀<a href="https://www.cnblogs.com/xunbu7/p/8086091.html" target="_blank" rel="noopener">利用signapk.jar工具对apk文件进行签名</a></left>)。<br>signapk.jar、testkey.x509.pem、testkey.pk8下载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">链接:https://pan.baidu.com/s/1o_k--UPAASWWH_Mk77eITw  密码:8p2p</span><br></pre></td></tr></table></figure></p><p>把回编译好的APK拷贝到签名文件下，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar signapk.jar  testkey.x509.pem testkey.pk8 android.apk newandroid.apk</span><br></pre></td></tr></table></figure></p><p>签名操作完成后，会在当前目录下生成newandroid.apk文件。<br><img src="/2019/11/28/一次反编译apk并重新打包签名/img9.png" alt="img9.png"></p><p>Done!</p>]]></content>
       
       
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 反编译 </tag>
+            
+            <tag> apktool </tag>
+            
+        </tags>
       
     </entry>
     
